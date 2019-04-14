@@ -1,0 +1,8 @@
+Here's a line
+<<<<<<< HEAD
+Hello world from evryone!
+=======
+Hello world from evryone!
+>>>>>>> bc5f754ab6a9e05e3f86843c65d2e22d96e46eeb
+Here's another line
+to your git repository

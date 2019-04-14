@@ -1,0 +1,30 @@
+<!doctype html>
+<title>Login</title>
+
+{% if error %}
+<p style="color:red">{{ error }}</p>
+{% endif %}
+
+<form action="/handle_login" method="POST">
+    month:
+    <br>
+    <input type="number" name="Month">
+    <br>
+    from:
+    <br>
+    <input type="number" name="Year From">
+    <br>
+    to:
+    <br>
+    <input type="number" name="Year to">
+    <br>
+    min (leave blank for default):
+    <br>
+    <input type="number" name="Min">
+    <br>
+    max (leave blank for default):
+    <br>
+    <input type="number" name="Max">
+    <br>
+    <input type="submit" value="Submit">
+</form>

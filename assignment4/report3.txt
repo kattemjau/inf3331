@@ -1,0 +1,17 @@
+Test of numpy implemetasion
+a=0
+b=1
+n=4000000
+f(x)=x**2
+
+You see here that numpy is 0.012 seconds faster then the standard python implemetasion
+
+integral constant = 0.8492166996002197
+integral linerer = 1.0292816162109375
+integral numpy = 1.016557216644287
+numpy raskere:  0.01272439956665039
+integral numba = 1.3110735416412354
+
+testing was done without the plotting of the graph
+
+For installing run the python3 setup.py install command

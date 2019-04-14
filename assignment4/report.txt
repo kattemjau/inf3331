@@ -1,0 +1,4 @@
+To run the program run the the: python3 contest.py
+Will print the awnser for all 6 tasks in 4.8
+
+For installing run the python3 setup.py install command

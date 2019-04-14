@@ -1,0 +1,21 @@
+Test of numba implemetasion
+a=0
+b=1
+n=4000000
+f(x)=x**2
+
+Ser her at numba er treigere enn alle andre implementasjoner
+
+
+
+integral constant = 0.7083139419555664
+integral linerer = 1.0294835567474365
+integral numpy = 1.052269697189331
+numpy raskere:  -0.02278614044189453
+integral numba = 1.3655085563659668
+
+
+integrator_coparison.py runs all midpoint tests and prints out the result
+They should all be close to 2.0
+
+For installing run the python3 setup.py install command

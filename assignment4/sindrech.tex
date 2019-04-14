@@ -1,0 +1,99 @@
+\documentclass[a4paper]{article}
+
+% Import some useful packages
+\usepackage[margin=0.5in]{geometry} % narrow margins
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.95}
+
+\title{Peer-review of assignment 4 for \textit{INF3331-ReviewedRepoName UiO-INF3331/INF3331-sindrech.git}}
+\author{Reviewer 1, williada, {williada@ulrik.uio.no} \\
+ 		Reviewer 2, marcusrg, {marcusrg@matnat.uio.no} \\
+		Reviewer 3, pederbh, {pederbh@student.matnat.uio.no}}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{General feedback}
+The tree structure of your code is a bit confusing. You have empty {\_}{\_}init{\_}{\_}.py lying around, and you don't need too have a copy of all scripts in two different directories. You can just copy the methods into a single {\_}{\_}init{\_}{\_}.py. We are not sure, but this might be why you need to have copies of .py files in many different directories (?) 
+It would also be nice with some comments regarding the code i.e assumptions and limitations. We found errors in many of your functions, but they are usually due to a for-loop running too often. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.1}
+\begin{itemize}
+  \item The error margin in constant function is not entirely correct. It is supposed to have an error margin of 1/N.
+  \item The name of the test are good and easy to understand
+ \item  constant function also returns the wrong answer for other ranges, but since we were not expected to test for other than 0 to 1 that is fine. That being said, the function returns an answer above the true answer, not below. We think this is because you iterate one to many times.  
+\end{itemize}
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+#Do this instead
+for i in range(0, n-1):
+\end{minted}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.2} \label{sec:assignment5.2}
+\begin{itemize}
+  \item We would like to see the image generation to happen in its own method. For testing and general tidy and clean code.
+  \item Agiain, the loop runs too many times, and your answer is therefore incorrect. It gets closer to the true value {1/3}, but from above. See 4.1 for fix.
+  
+ \item  The quadratic{\_}error.png is completely wrong. You were supposed to make a graph that showed how close your function (for different N values) is to the true answer. That means how close computed and expected answer is for a range of N. Your graph shows the areal of rectangles under the graph for the points in the x-axis. 
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.3}
+
+\begin{itemize}
+  \item Implementation seems to be correct, and vectorizing is used. 
+   \item Would like to see a wider range of N in time comparison. 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.4}
+\begin{itemize}
+  \item Again, the result is not entirely correct. This is also due to the loop running too many times. Try this instead
+  \begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+for i in range(0, n): 
+\end{minted}
+   \item We would also recommend to put the for-loop into its own function, and @jit it. This will speed up the computation, and will be faster than numpy for more advanced functions and hight N's. 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.5}
+Reviewing a INF3331 student.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.6}
+\begin{itemize}
+ \item midpoint{\_}Integrate has the same problem as in 4.1, 4.2 and 4.4 you run the loop one time to many. 
+\item midpoint  Integrate with numpy is not correct. You are thinking in the right direction, but you are supposed to adjust the points half an interval to the left, not the right. So do this instead:
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+res=func(x-intervall/2) 
+\end{minted}
+
+  \item Same goes for midpoint{\_}integrate in numba, but here the adjustment is not implemented.
+  \item The report and test file are also missing the calculation for the required N such that you get to within {10e-10} of the actual answer.
+  
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.7}
+The module works fine, but there are several empty {\_}{\_}init{\_}{\_}.py files whereas you could paste the methods in a single one. But that is a matter of preference. 
+
+\subsection*{Assignment 4.8}
+Looks good!
+\bibliographystyle{plain}
+\bibliography{literature}
+
+\end{document}
